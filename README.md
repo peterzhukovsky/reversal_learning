@@ -15,14 +15,15 @@ Using the Q values placed on each of the two choices (left or right), decision p
 q_learning_script will run simulations of an agent performing a reversal learning task (the reward contingencies are switched after 9/10  correct responses are made; the task finishes after 3 reversals are achieved). Its output is in the variable "summary", which includes one cell for each combination of parameters alpha_reward, alpha_no_reward and beta that is listed in the index-variable. For each combination of the three parameters, 100 iterations of the task are ran. Depending on how advantageous the combination, it will take the simulated agent more or fewer trials to finish the task.
 
 # 2. Qfit2data.m
-Qfit2data requires a data input. It is currently set up to import text files such as "example.txt" using readtable. 
+Qfit2data requires a data input. It is currently set up to import text files such as "1.txt" using readtable. 4 example datasets are uploaded, too. If they are in the same directory as Qfit2data.m, and specified in subject_list, they will be imported and each output variable will have 4 rows, one for each subject.
+
 For each datafile imported, it will compute the Q and decision probability values, then compute the probability density function 
 PDF(alpha_reward, alpha_no_reward, beta) and pick the maximum of log(PDF). PDF is computed as the product of probabilities of observing the sequence of responses fed into Qfit2data.m. 
 
 It will then compute a pseudo R-square measure that first calculates the probability of observing the sequence of responses at random (each response probability=0.5) and then calculates pseudo_R2 as
 pseudo_R2=(PDF-r)/r
 
-It also allows for plotting a PDF of all 3 parameters in 3d to explore how quickly the PDF declines around the maximum, i.e. how well do the alternative combinations of parameters fit the data by comparison the best combination. 
+It also allows for plotting a PDF of all 3 parameters in 3d to explore how quickly the PDF declines around the maximum, i.e. how well do the alternative combinations of parameters fit the data compared to the best combination. 
 
 The outputs are:
 1) R2_fit
