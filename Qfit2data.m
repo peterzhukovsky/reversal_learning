@@ -95,7 +95,7 @@ R2_fit=R2_fit';
     
 %% Plotting the PDF - compare the different params to each other 
             %subsetting
-              subject=11 %specify subject ID here
+              subject=1 %specify subject ID here
         subsetS=zeros(1,length(PDF)); %subsetting to include only some values around the maximum (0.3*max) of the probability density function
         for i=1:length(PDF);
             if PDF_all{1,subject}(i)> max(PDF_all{1,subject})+0.3*max(PDF_all{1,subject});
