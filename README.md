@@ -1,7 +1,7 @@
 # reversal_learning
 A set of matlab scripts to fit a Q-learning model to 2-choice-data (response/reward) using softmax as decision rule and log-likelihood for model fitting.
 
-Q learning algorithm implemented here are based on "Trial-by-trial data analysis using computational models" by Nathaniel D. Daw, http://www.princeton.edu/~ndaw/d10.pdf
+Q learning algorithms implemented here are based on "Trial-by-trial data analysis using computational models" by Nathaniel D. Daw, http://www.princeton.edu/~ndaw/d10.pdf
 
 In brief, if a subject makes a choice ct (Left or Right) on a trial t, then the Q value for that choice(L or R) on the subsequent trial will be 
 Qt+1(ct) = Qt(ct) +α·δt 
