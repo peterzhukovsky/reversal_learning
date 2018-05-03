@@ -1,5 +1,5 @@
 %import data 1st
-subject_list= [ 1     2     3     4     5    6     7     8     9    10    11    12    13    14      15    16    17  18    19    20    21    23    24];
+subject_list= [ 1     2     3     4 ];
 for subject=subject_list;    %loop for all subjects
     %Import data
     data=readtable(strcat(num2str(subject), '.txt'));
