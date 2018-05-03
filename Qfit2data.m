@@ -1,4 +1,4 @@
-%data=readtable('left_right_qmodelling.txt');]
+%import data 1st
 subject_list= [ 1     2     3     4     5    6     7     8     9    10    11    12    13    14      15    16    17  18    19    20    21    23    24];
 for subject=subject_list;    %loop for all subjects
     %Import data
@@ -134,27 +134,10 @@ R2_fit=R2_fit';
 CI_beta_all=CI_beta_all'
    
     
-   
-%% %plotting some data as an example, e.g. total Q values for left
-            %and right
-            figure(3)
-            plot(total_Q_left)
-            hold on
-            plot(total_Q_right)
-            
-            %plotting Prob_choice for L and R; together with observed
-            %responses - see how good your params are at predicting data
-            %bear in mind this is for the last set of params
-            figure(2)
-            plot(Prob_choice_l)
-            hold on
-            plot(Prob_choice_r)
-            hold on
-            plot(response)
 %% Plotting the PDF - compare the different params to each other 
             %subsetting
-              subject=11
-        subsetS=zeros(1,length(PDF));
+              subject=11 %specify subject ID here
+        subsetS=zeros(1,length(PDF)); %subsetting to include only some values around the maximum (0.3*max) of the probability density function
         for i=1:length(PDF);
             if PDF_all{1,subject}(i)> max(PDF_all{1,subject})+0.3*max(PDF_all{1,subject});
                 subsetS(i)=PDF_all{1,subject}(i);
