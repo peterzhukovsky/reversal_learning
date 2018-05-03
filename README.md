@@ -24,6 +24,11 @@ pseudo_R2=(PDF-r)/r
 
 It also allows for plotting a PDF of all 3 parameters in 3d to explore how quickly the PDF declines around the maximum, i.e. how well do the alternative combinations of parameters fit the data by comparison the best combination. 
 
+The outputs are:
+1) R2_fit
+2) best_fit_params
+3) PDF_all 
+
 # 3. CI_fitting.m
 CI_fitting will attempt to compute the CIs on the parameter combination using the Hessian of the PDF (2nd order derivative). This function is not completed yet. It needs the output from Qfit2data.m, more specifically the PDF for all subjects.
 
