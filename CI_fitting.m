@@ -1,4 +1,3 @@
-%%
 %finding out how well the parameters fit:
 %https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/quadratic-approximations/a/the-hessian
     %reshape PDF to 34 x 34 x 34 so we dont have index in it explicitly anymore; its now          
