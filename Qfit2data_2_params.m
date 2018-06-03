@@ -3,7 +3,7 @@
 subject_list= [ 1     2     3     4     5    6     7     8     9    10    11    12    13     14    15    16    17  18    19    20    21    23    24];
 for subject=subject_list;    %loop for all subjects
     %Import data
-    data=readtable(strcat('C:/Users/Peter/Documents/MATLAB/reversal_modelling/pre_sugar_data/', num2str(subject), '.txt'));
+    data=readtable(strcat(num2str(subject), '.txt'));
 
 clear C               Q_right                block_history   reward_history
 clear Prob_choice_l   Resp               ntrials         total_Q_left  
