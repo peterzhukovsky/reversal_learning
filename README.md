@@ -34,9 +34,9 @@ The outputs are:
 CI_fitting will attempt to compute the CIs on the parameter combination using the Hessian of the PDF (2nd order derivative). This function is not completed yet. It needs the output from Qfit2data.m, more specifically the PDF for all subjects.
 
 # 4. Qfit2data_2params and Qfit2data_2params_AUTOCORREL
-Qfit2data_2params is a simplified version of Qfit2data_2, which models only one learning parameter alpha, taking learning from reward and non-reward trials to happen at the same rate. Qfit2data_2params_AUTOCORREL extends Qfit2data_2params by modelling choice autocorrelation.
+Qfit2data_2params is a simplified version of Qfit2data, which models only one learning parameter alpha, taking learning from reward and non-reward trials to happen at the same rate. Qfit2data_2params_AUTOCORREL extends Qfit2data_2params by modelling choice autocorrelation.
 To compare the models (Qfit2data_2params vs Qfit2data_2params_AUTOCORREL or Qfit2data_2params vs Qfit2data with 3 parameters), the variable d (log probability of observing the data given the model with its best fitting parameters) is created. 
-Log likelihood ratio 
+Log likelihood ratio: 
 2*(d(model1)-d(model2)) 
 follows a chi square distribution and p-values can be obtained by comparing the fit of two models using the log likelihood ratio. 
 
