@@ -1,9 +1,9 @@
 %% Data Import and Fitting the PDFs to the data
 %data=readtable('left_right_qmodelling.txt');]
-subject_list= [ 1     2     3     4     5    6     7     8     9    10    11    12    13        15    16    17  18    19    20    21  22  23    24];
-for subject=7%subject_list;    %loop for all subjects
+subject_list= [ 1     2     3     4];
+for subject=subject_list;    %loop for all subjects
     %Import data
-    data=readtable(strcat('C:/Users/Peter/Documents/MATLAB/reversal_modelling/cocaine_data/', num2str(subject), '.txt'));
+    data=readtable(strcat('%% WORKING DIRECTORY WITH THE TEXT FILES CONTAINING DATA HERE', num2str(subject), '.txt'));
 
 clear C               Q_right                block_history   reward_history
 clear Prob_choice_l   Resp               ntrials         total_Q_left  
@@ -133,30 +133,5 @@ r=log(0.5^(length(response)));
 end %end the loop for all subjects
 
 pseudo_R2=pseudo_R2'
-BIC_all=BIC_all'
-%% PARAMETER OPTIMIZATION
-%exploring the PDF for each subject for each parameter combination (from index) to find the best fit parameters
-PDF=PDF';
-
-best_fit_params=zeros(2,length(subject_list))';
-R2_fit=zeros(1,length(subject_list));
-PDF_all_cut=PDF_all;
-for subject=subject_list
-    for row=1:length(PDF);
-
-        if PDF_all{1,subject}(row) == (max(PDF_all{1,subject}));  %+max(PDF_all{1,subject})*0.0000005);
-            best_fit_params(subject,:,:)=(index(row,:,:));
-            R2_fit(subject)=pseudo_R2_all{1,subject}(row);
-        end
-        
-    end
-    PDF_all_cut{1,subject}(~isfinite(PDF_all_cut{1,subject}))=[];
-    Model_evidence(subject)=mean(PDF_all_cut{1,subject});
-    d(subject)=max(PDF_all{1,subject});
-end
-Model_evidence=Model_evidence';
-R2_fit=R2_fit';
-d=d';
-chi2inv(.95, 1)
-
+BIC_all=BIC_all
         
