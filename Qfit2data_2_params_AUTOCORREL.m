@@ -100,8 +100,8 @@ for subject=subject_list
         end
         
     end
-    PDF_all_cut{1,subject}(~isfinite(PDF_all_cut{1,subject}))=[];
-    Model_evidence(subject)=mean(PDF_all_cut{1,subject});
+    BIC=max(PDF_all{1,subject})-2/2*log(length(response));
+    BIC_all(subject)=BIC;
     d(subject)=max(PDF_all{1,subject});
 end
 Model_evidence=Model_evidence';
