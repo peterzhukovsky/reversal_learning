@@ -29,7 +29,7 @@ The outputs are:
 1) R2_fit
 2) best_fit_params
 3) PDF_all 
-
+4) BIC_all
 # 3. CI_fitting.m
 CI_fitting will attempt to compute the CIs on the parameter combination using the Hessian of the PDF (2nd order derivative). This function is not completed yet. It needs the output from Qfit2data.m, more specifically the PDF for all subjects.
 
@@ -45,10 +45,13 @@ The outputs are:
 2) best_fit_params
 3) PDF_all 
 4) d
-5) Model_evidence
+5) Bayesian Information Criterion, BIC
 
 # 5. pi_fit2data
 pi_fit2data is a simple policy based learning model with the standard softmax rule. Model_evidence variable could be used to compare it to the other models - it is the average of the log likelihoods for all the parameter sets that were probed in a given model.  
 
 # 6. Visualising_results & more info
 Scripts for some simple figures can be found in Visualising_results and an overview of the theory (following Daw 2009) with sample results can be found in Reversal_modelling.pdf
+
+# 7. Analytic parameter selection
+The script Analytic_Qfit2data_2_params creates a continuous PDF for two parameters, [alpha and beta] and then uses matlab's fmincon to locally minimize the log-probability function. It also creates a surface plot of the probability of observing the data given any combination of the parameters [alpha, beta]. 
