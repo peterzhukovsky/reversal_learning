@@ -100,7 +100,7 @@ for subject=subject_list
         end
         
     end
-    BIC=max(PDF_all{1,subject})-2/2*log(length(response));
+    BIC=max(PDF_all{1,subject})-3/2*log(length(response));
     BIC_all(subject)=BIC;
     d(subject)=max(PDF_all{1,subject});
 end
