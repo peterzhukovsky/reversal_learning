@@ -2,7 +2,7 @@
 subject_list= [ 1     2     3     4 ];
 for subject=subject_list;    %loop for all subjects
     %Import data
-    data=readtable(strcat(num2str(subject), '.txt'));
+    data=readtable(strcat('%%POINT TO THE DIRECTORY CONTAINING SUBJECT DATA IN TEXT FILES', num2str(subject), '.txt'));
 
 clear C               Q_right                block_history   reward_history
 clear Prob_choice_l   Resp               ntrials         total_Q_left  
@@ -13,7 +13,7 @@ clear Q_left         block           reward          trial    PDF
 response=data.Var1; % alternatively you can feed it response and reward data here directly
 reward=data.Var2;
 j=0.001:0.02:1;
-k=0.01:0.08:4;
+k=0.005:0.08:5;
 index=allcomb(j,j,k);
 for l=1:length(index);      %loop for all combinations of the parameters
     alpha_l_R=index(l,1,1);
@@ -77,7 +77,7 @@ end %end the loop for all subjects
 
 %exploring the PDF for each subject for each parameter combination (from index) to find the best fit parameters
 PDF=PDF';
-
+PDF_all_cut=PDF_all;
 best_fit_params=zeros(3,length(subject_list))';
 R2_fit=zeros(1,length(subject_list));
 for subject=subject_list
@@ -87,11 +87,16 @@ for subject=subject_list
             R2_fit(subject)=pseudo_R2_all{1,subject}(row);
         end
     end
+    PDF_all_cut{1,subject}(~isfinite(PDF_all_cut{1,subject}))=[];
+    Model_evidence(subject)=mean(PDF_all_cut{1,subject});
+    d(subject)=max(PDF_all{1,subject});
+    %BIC needs to be adjusted for a) nr of parameters, here it is 3 and b)
+    %nr of responses
+    BIC=max(PDF_all{1,subject})-3/2*log(length(response));
+    BIC_all(subject)=BIC;
 end
 R2_fit=R2_fit';
-%best_fit_params saved for each subject on a row
-
- 
+d=d';
     
 %% Plotting the PDF - compare the different params to each other 
             %subsetting
