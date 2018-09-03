@@ -54,4 +54,4 @@ pi_fit2data is a simple policy based learning model with the standard softmax ru
 Scripts for some simple figures can be found in Visualising_results and an overview of the theory (following Daw 2009) with sample results can be found in Reversal_modelling.pdf
 
 # 7. Analytic parameter selection
-The script Analytic_Qfit2data_2_params creates a continuous PDF for two parameters, [alpha and beta] and then uses matlab's fmincon to locally minimize the log-probability function. It also creates a surface plot of the probability of observing the data given any combination of the parameters [alpha, beta]. 
+The script Analytic_Qfit2data_2_params creates a continuous PDF for two parameters, [alpha and beta] and then uses matlab's fmincon to locally minimize the log-probability function. It also creates a surface plot of the probability of observing the data given any combination of the parameters [alpha, beta]. The best fit parameters selected by the analytic solution are closest to the best fit parameters selected from the discrete parameter space in the Qfit2data_2params script before. 
