@@ -88,20 +88,20 @@ lb = [0, 0];
 ub = [1 , 5];
 x0 = [0.5; 0.5];
 
-%xrange1=0:0.2:1;
-%xrange2=0:0.3:3;
-%for i=1:length(xrange1);
- %   for j=1:length(xrange2);
- %   x0=[xrange1(i); xrange2(j)];
-  %  [PDF_min, PDF_minval] = fmincon(PDF_FUNCTION,x0,A,b,Aeq,beq,lb,ub);
-  %  PDF_min_optimalval(i,j,:)=PDF_minval;
-  %  PDF_min_optimal(i,j,:)=PDF_min;
-  %  end
-%end
+xrange1=0:0.2:1;
+xrange2=0:0.3:3;
+for i=1:length(xrange1);
+    for j=1:length(xrange2);
+    x0=[xrange1(i); xrange2(j)];
+    [PDF_min, PDF_minval] = fmincon(PDF_FUNCTION,x0,A,b,Aeq,beq,lb,ub);
+    PDF_min_optimalval(i,j,:)=PDF_minval;
+    PDF_min_optimal(i,j,:)=PDF_min;
+    end
+end
 
 
-[PDF_min, PDF_minval] = fmincon(PDF_FUNCTION,x0,A,b,Aeq,beq,lb,ub)
-best_fit_params(subject,:)=PDF_min;
+%[PDF_min, PDF_minval] = fmincon(PDF_FUNCTION,x0,A,b,Aeq,beq,lb,ub)
+%best_fit_params(subject,:)=PDF_min;
 %fun = @(x)100*(x(2)-x(1)^2)^2 + (1-x(1))^2;
 %x=fminsearch(fun, x0)
 %x=fmincon(PDF_FUNCTION, x0,A,b,Aeq,beq,lb,ub)
@@ -126,12 +126,7 @@ r=log(0.5^(length(response)));
     %Q model fit vs random model
     pseudo_R2(subject)=(-PDF_minval-r)/r;
 
-
-%save data for each subject
-%PDF_all(subject)={PDF};
-%pseudo_R2_all(subject)={pseudo_R2};
 end %end the loop for all subjects
 
 pseudo_R2=pseudo_R2'
 BIC_all=BIC_all
-        
