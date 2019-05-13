@@ -55,3 +55,6 @@ Scripts for some simple figures can be found in Visualising_results and an overv
 
 # 7. Analytic parameter selection
 The script Analytic_Qfit2data_2_params creates a continuous PDF for two parameters, [alpha and beta] and then uses matlab's fmincon to locally minimize the log-probability function. It also creates a surface plot of the probability of observing the data given any combination of the parameters [alpha, beta]. The best fit parameters selected by the analytic solution are closest to the best fit parameters selected from the discrete parameter space in the Qfit2data_2params script before. 
+
+An additional function needed to run the scripts is the allcomb function:
+https://uk.mathworks.com/matlabcentral/fileexchange/10064-allcomb-varargin
